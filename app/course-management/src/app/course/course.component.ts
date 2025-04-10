@@ -6,6 +6,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
+import { CourseEditComponent } from '../course-edit/course-edit.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-course',
@@ -28,8 +30,9 @@ export class CourseComponent implements OnInit {
     udemyLink: '',
     active: true,
   };
+  editingCourse: any = null;
 
-  constructor(private courseService: CourseService) {}
+  constructor(private courseService: CourseService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.getCourses();
@@ -57,6 +60,21 @@ export class CourseComponent implements OnInit {
     const newState = !course.active;
     this.courseService.updateCourseState(course.id, newState).subscribe(() => {
       course.active = newState;
+    });
+  }
+  editCourse(course: any): void {
+    const dialogRef = this.dialog.open(CourseEditComponent, {
+      width: '2000px',
+      data: course,
+    });
+
+    dialogRef.afterClosed().subscribe((updatedCourse) => {
+      if (updatedCourse) {
+        const index = this.courses.findIndex((c) => c.id === updatedCourse.id);
+        if (index !== -1) {
+          this.courses[index] = updatedCourse;
+        }
+      }
     });
   }
 
