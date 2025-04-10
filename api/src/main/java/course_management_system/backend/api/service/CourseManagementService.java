@@ -21,6 +21,7 @@ public class CourseManagementService {
 
     public CourseManagement getCourseById(Long id) {
         return courseManagementRepository.findById(id).orElse(null);
+        
     }
 
     public CourseManagement updateCourseState(Long id, boolean active) {

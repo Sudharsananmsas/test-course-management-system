@@ -1,0 +1,105 @@
+/* Course Container Styling */
+.course-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Styling the form card */
+.course-form {
+  padding: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Course List Styling */
+.course-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Individual Course Card */
+.course-item {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  mat-card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+
+  mat-card-content {
+    font-size: 1rem;
+    margin-top: 10px;
+
+    a {
+      display: block;
+      margin-top: 8px;
+      color: #1e88e5;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  mat-card-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+
+    button {
+      width: 48%;
+    }
+  }
+}
+
+/* Button styles */
+button {
+  min-width: 100px;
+  font-weight: 600;
+  padding: 8px 16px;
+
+  &:disabled {
+    background-color: #e0e0e0;
+  }
+}
+
+/* Form field styles */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+mat-label {
+  font-size: 1rem;
+}
+
+input, textarea {
+  font-size: 1rem;
+}
+
+textarea {
+  min-height: 100px;
+}
+
+

@@ -1,0 +1,7 @@
+course_management_system\backend\api\dto\CourseManagementDto.class
+course_management_system\backend\api\repository\CourseManagementRepository.class
+course_management_system\backend\api\model\CourseManagement.class
+course_management_system\backend\api\ApiApplication.class
+course_management_system\backend\api\service\CourseManagementService.class
+course_management_system\backend\api\model\CourseManagement$CourseManagementBuilder.class
+course_management_system\backend\api\controller\CourseManagementController.class
