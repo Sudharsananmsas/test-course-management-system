@@ -1,0 +1,47 @@
+<div class="course-container">
+    <h2>Udemy Courses</h2>
+  
+    <!-- Add Course Form -->
+    <mat-card class="course-form">
+      <form (ngSubmit)="onAddCourse()" #courseForm="ngForm">
+        <mat-form-field appearance="fill">
+          <mat-label>Course Title</mat-label>
+          <input matInput name="title" [(ngModel)]="newCourse.title" required />
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Description</mat-label>
+          <textarea matInput name="description" [(ngModel)]="newCourse.description" required></textarea>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Udemy Link</mat-label>
+          <input matInput name="udemyLink" [(ngModel)]="newCourse.udemyLink" required />
+        </mat-form-field>
+  
+        <button mat-raised-button color="primary" type="submit" [disabled]="!courseForm.valid">
+          Add Course
+        </button>
+      </form>
+    </mat-card>
+  
+    <!-- List of Courses -->
+    <div class="course-list">
+      <mat-card class="course-item" *ngFor="let course of courses">
+        <mat-card-title>{{ course.title }}</mat-card-title>
+        <mat-card-content>
+          <p>{{ course.description }}</p>
+          <a [href]="course.udemyLink" target="_blank">View Course</a>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="accent" (click)="CourseState(course)">
+            {{ course.active ? 'Deactivate' : 'Activate' }}
+          </button>
+          <button mat-button color="warn" (click)="deleteCourse(course)" *ngIf="!course.active">
+            Delete
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+  
