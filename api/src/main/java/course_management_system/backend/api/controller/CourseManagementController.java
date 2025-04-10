@@ -31,6 +31,11 @@ public class CourseManagementController {
     public CourseManagement getCourse(@PathVariable Long id) {
         return courseManagementService.getCourseById(id);
     }
+    @PutMapping("/{id}")
+    public ResponseEntity<CourseManagement> updateCourse(@PathVariable Long id, @RequestBody CourseManagement course) {
+        CourseManagement updatedCourse = courseManagementService.updateCourse(id, course);
+        return ResponseEntity.ok(updatedCourse);
+    }
 
     @PutMapping("/{id}/activate")
     public ResponseEntity<CourseManagement> activateCourse(@PathVariable Long id) {

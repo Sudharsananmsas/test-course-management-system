@@ -29,6 +29,18 @@ public class CourseManagementService {
         course.setActive(active);
         return courseManagementRepository.save(course);
     }
+    public CourseManagement updateCourse(Long id, CourseManagement course) {
+        if (courseManagementRepository.existsById(id)) {
+            CourseManagement existingCourse = courseManagementRepository.findById(id).get();
+            existingCourse.setTitle(course.getTitle());
+            existingCourse.setDescription(course.getDescription());
+            existingCourse.setUdemyLink(course.getUdemyLink());
+            existingCourse.setActive(course.isActive());
+            return courseManagementRepository.save(existingCourse); 
+        } else {
+            throw null;
+        }
+    }
 
     public void deleteCourse(Long id) {
         courseManagementRepository.deleteById(id);

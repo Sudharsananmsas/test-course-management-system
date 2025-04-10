@@ -1,0 +1,61 @@
+/* Main container for the card */
+mat-card {
+    max-width: 2000px;
+    margin: 20px ;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #ffffff;
+  }
+  
+  /* Title style */
+  h2 {
+    text-align: center;
+    color: #3f51b5;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Form field */
+  mat-form-field {
+    display: block;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  /* Label text */
+  mat-label {
+    font-weight: 500;
+  }
+  
+  /* Textarea styling */
+  textarea {
+    min-height: 120px; /* Make the textarea bigger */
+  }
+  
+  
+  /* Actions - Save & Cancel buttons */
+  mat-card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  /* Save button styling */
+  button[type='submit'] {
+    background-color: #3f51b5;
+    color: white;
+    &:hover {
+      background-color: #303f9f;
+    }
+  }
+  
+  /* Cancel button styling */
+  button[type='button'] {
+    color: #f44336;
+    &:hover {
+      background-color: rgba(244, 67, 54, 0.1);
+    }
+  }
+  
